@@ -3,7 +3,7 @@ const list = require('../data/postsList.js');
 
 // INDEX
 function index (req, res){
-    res.send('Lista dei post');
+    res.json(list);
 };
 
 // SHOW
