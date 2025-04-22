@@ -4,35 +4,26 @@ const express = require('express');
 // importo la classe router:
 const router = express.Router();
 
+// importiamo la classe controller:
+const postController = require('../controllers/postController.js');
+
 // INDEX
-router.get('/', (req, res) => {
-    res.send('Lista dei post');
-});
+router.get('/', postController.index);
 
 // SHOW
-router.get('/:id', (req, res) => {
-    res.send(`Dettaglio del post con id ${req.params.id}`);
-});
+router.get('/:id', postController.show);
 
 // STORE
-router.post('/', (req, res) => {
-    res.send('Inserimento di un nuovo post');
-});
+router.post('/', postController.store);
 
 // UPDATE
-router.put('/:id', (req, res) => {
-    res.send(`Modifica totale del post con id ${req.params.id}`);
-});
+router.put('/:id', postController.update);
 
 // MODIFY
-router.patch('/:id', (req, res) => {
-    res.send(`Modifca parazile del post con id ${req.params.id}`);
-});
+router.patch('/:id', postController.modify);
 
 // DESTROY
-router.delete('/:id', (req, res) => {
-    res.send(`Cancellazione del post con id ${req.params.id}`);
-});
+router.delete('/:id', postController.destroy);
 
 // esporto il router:
 module.exports = router;
