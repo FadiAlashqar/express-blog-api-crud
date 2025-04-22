@@ -1,3 +1,6 @@
+// importo l'array contente la losta dei post:
+const list = require('../data/postsList.js');
+
 // INDEX
 function index (req, res){
     res.send('Lista dei post');
