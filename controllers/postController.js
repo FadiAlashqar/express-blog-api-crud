@@ -8,7 +8,13 @@ function index (req, res){
 
 // SHOW
 function show (req, res){
-    res.send(`Dettaglio del post con id ${req.params.id}`);
+    let id = parseInt(req.params.id);
+    
+    const post = list.find((post) => {
+        return post.id === id;
+    })
+
+    res.json(post);
 };
 
 // STORE
