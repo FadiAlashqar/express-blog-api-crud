@@ -19,7 +19,22 @@ function show (req, res){
 
 // STORE
 function store(req, res) {
-    res.send('Inserimento di un nuovo post');
+    // definisco l'id del nuovo post
+    let newId = list[list.length - 1].id + 1;
+
+    const {title, content, image, tags} = req.body;
+
+    const newPost = {
+        id: newId,
+        title,
+        content,
+        image,
+        tags
+    };
+
+    list.push(newPost);
+    
+    res.json(newPost);
 };
 
 // UPDATE
