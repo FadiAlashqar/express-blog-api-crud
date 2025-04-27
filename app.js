@@ -10,6 +10,9 @@ const port = 3000;
 // importo il router:
 const postRouter = require('./router/posts.js');
 
+// comunico al server di interpretare le informazioni contenute nel body della richiesta come json
+app.use(express.json());
+
 // definisco la rotta base: 
 app.get('/', (req, res) => {
     res.send('Homepage')
