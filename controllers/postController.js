@@ -33,13 +33,36 @@ function store(req, res) {
     };
 
     list.push(newPost);
-    
+
+    res.status(201);
+
     res.json(newPost);
 };
 
 // UPDATE
 function update(req, res) {
-    res.send(`Modifica totale del post con id ${req.params.id}`);
+    // Faccio in modo che l'id mi venga restituito come numero
+    let id = parseInt(req.params.id);
+
+    const post = list.find(post => post.id === id);
+
+    if (!post) {
+        res.status(404);
+
+        return res.json({
+            error: "404",
+            message: "Post non trovato"
+        })
+    }
+    
+    post.title = req.body.title;
+    post.content = req.body.content;
+    post.image = req.body.image;
+    post.tags = req.body.tags;
+
+    console.log(list);
+    
+    res.send(post);
 };
 
 // MODIFY
