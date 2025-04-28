@@ -3,6 +3,7 @@ const list = require('../data/postsList.js');
 
 // INDEX
 function index (req, res){
+    pippo.myfunction();
     res.json(list);
 };
 
