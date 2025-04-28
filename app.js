@@ -12,6 +12,8 @@ const postRouter = require('./router/posts.js');
 // importo la funzione cje mi rileva gli errori
 const errorsHandler = require('./middleWares/errorsHandler.js');
 
+const notFound = require('./middleWares/notFound.js');
+
 // comunico al server di interpretare le informazioni contenute nel body della richiesta come json
 app.use(express.json());
 
@@ -24,6 +26,8 @@ app.get('/', (req, res) => {
 app.use('/posts', postRouter);
 
 app.use(errorsHandler);
+
+app.use(notFound);
 
 // metto il server in ascolto:
 app.listen(port, () => {
